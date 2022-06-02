@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesos</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{mensaje}}</h1>  <!-- interpolacion -->
+        <h1 v-text="mensaje"></h1>  <!-- directiva text -->
+        <input type="text" placeholder="Digite el texto" v-model="mensaje">
+        <hr>
+        <a :href="url" target="blanck"> Pablo Szulman </a>  <!-- para acceder a url -->
+    </div>
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+
+/*  CON JAVASCRIIPT
+        const data = document.querySelector('input');
+        const dataModifile = document.querySelector('h1'); 
+
+        data.addEventListener('keyup',function(){
+            dataModifile.innerHTML = data.value;
+        });
+*/
+        
+        var app = new Vue({
+            el: '#app',
+            data: {
+                mensaje: 'Hola pablitooo',
+                url: "https://google.com",
+            }
+        })
+    </script>
+
+
+
+</body>
+</html>

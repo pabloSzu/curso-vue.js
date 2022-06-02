@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificador de Eventos</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{contador}}</p>
+        <button v-on:mouseover="contador += 1">Sumar</button>
+        <button v-on:click="contador += 1">Sumar</button>
+        <button v-on:click="saludar()">Saluda</button>
+        <button v-on:click.once="saludar()">Saluda</button>
+        <button v-on:click.stop="saludar('asdsdad')">Saluda</button>
+    </div>
+    
+    <!--
+        .once = 1 unica vez
+        .stop = 1 solo componente
+    -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                contador: 0,
+            },
+            methods:{
+                saludar(nombre){
+                     console.log("Hola mundoooo", nombre);
+                }
+            }
+        })
+
+    </script>
+
+
+
+</body>
+</html>
