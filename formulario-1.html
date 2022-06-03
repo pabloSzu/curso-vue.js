@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if</title>
+</head>
+<body>
+
+<form
+  id="app"
+  @submit="checkForm"
+  action="https://vuejs.org/"
+  method="post"
+>
+
+  <p v-if="errors.length">
+    <b>Por favor, corrija el(los) siguiente(s) error(es):</b>
+    <ul>
+      <li v-for="error in errors">{{ error }}</li>
+    </ul>
+  </p>
+
+  <p>
+    <label for="name">Nombre</label>
+    <input
+      id="name"
+      v-model="name"
+      type="text"
+      name="name"
+    >
+  </p>
+
+  <p>
+    <label for="age">Edad</label>
+    <input
+      id="age"
+      v-model="age"
+      type="number"
+      name="age"
+      min="0">
+  </p>
+
+  <p>
+    <label for="movie">Película favorita</label>
+    <select
+      id="movie"
+      v-model="movie"
+      name="movie"
+    >
+      <option>Star Wars</option>
+      <option>Vanilla Sky</option>
+      <option>Atomic Blonde</option>
+    </select>
+  </p>
+
+  <p>
+    <input
+      type="submit"
+      value="Enviar"
+    >
+  </p>
+
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+
+const app = new Vue({
+  el: '#app',
+  data: {
+    errors: [],
+    name: null,
+    age: null,
+    movie: null
+  },
+  methods:{
+    checkForm: function (e) {
+      if (this.name && this.age) {
+        return true;
+      }
+
+      this.errors = [];
+
+      if (!this.name) {
+        this.errors.push('El nombre es obligatorio.');
+      }
+      if (!this.age) {
+        this.errors.push('La edad es obligatoria.');
+      }
+
+      e.preventDefault();
+    }
+  }
+})
+</script>
+
+
+
+</body>
+</html>
