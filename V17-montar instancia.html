@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instancias</title>
+</head>
+<body>
+    <div id="app">
+        {{titulo}}
+        <p>Este es el componente 1</p>
+        <p>{{temp}}</p>
+        <input type="text" v-model="nombre">
+        {{nombre}}
+    </div>
+    <hr>
+    <br>
+    <br>
+    <br>
+    <div id="componente">
+        <p>{{temp}}</p>
+        <input type="text" v-model="text">
+        <center>
+            <button @click="montar()">Montar instancia</button>
+        </center>
+    </div>
+    
+
+    <!-- Montamos una instancia con MOUNT -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+
+        const uno = new Vue({
+            data: {
+                titulo: 'Mi pagina',
+                nombre: 'Pablo Szulman',
+                temp: 'Este es el componente 1'
+            }
+        })
+
+        const dos = new Vue({
+            el: '#componente',
+            data: {
+                text: uno.nombre,
+                nombre: 'Este es el componente 2'
+            },
+            methods:{
+                montar(){
+                uno.$mount('#app')
+                }
+            }
+        })
+
+    </script>
+
+
+
+</body>
+</html>

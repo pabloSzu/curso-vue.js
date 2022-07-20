@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instancias</title>
+</head>
+<body>
+    <div id="app">
+        {{'colombia' | mayuscula}}
+        <hr>
+        {{'venezuela' | mayuscula}}
+        <hr>
+        {{'ecuador' | mayuscula}}
+        <hr>
+        {{'chile' | mayuscula}}
+        <hr>
+        {{'peru' | mayuscula}}
+        <hr>
+    </div>
+    <hr>
+    <br>
+    
+
+<!-- filter('nombre', funcion(par) )-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+
+        Vue.filter('mayuscula', function(data){
+            let primerCaracter = data.charAt(0).toUpperCase();
+            let text = data.slice(1, data.length);
+            return primerCaracter + text;
+        })
+
+        const app = new Vue({
+            el: '#app',
+        })
+
+    </script>
+
+
+
+</body>
+</html>

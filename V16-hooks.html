@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hooks</title>
+</head>
+<body>
+    <div id="app">
+        <center>
+            <hr>
+            {{titulo}}
+            <hr>
+            <input type="text" v-model="nombre">
+            {{nombre}}
+        </center>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                titulo: 'curso',
+                nombre: 'pablito',
+            },
+
+        //  beforeCreate = despues de inicializacion de instancia - antes de que el componente cree se
+        beforeCreate(){
+            alert('Antes de crear componente' + ' ' + this.nombre)
+        },
+
+        //  created = ejecuta cuando instancia , evento, propiedad
+        created(){
+            alert('Creado componente' + ' ' + this.nombre)
+        },
+
+        //  beforeMount = justo antes de añadir al DOM(página)
+        beforeMount(){
+            alert('justo antes de añadir al DOM' + ' ' + this.nombre)
+        },
+
+        //  mounted = después de añadir al DOM(página)
+        mounted(){
+            alert('después de añadir al DOM' + ' ' + this.nombre)
+        },
+
+        //  beforeUpdate = se ejecuta cuando el objeto data cambia - el DOM no
+        beforeUpdate(){
+            alert('objeto data cambia' + ' ' + this.nombre)
+        },
+
+        //  updated =  se ejecuta cuando el objeto data cambia - el DOM muestre
+        updated(){
+            alert('objeto data cambia en el DOM' + ' ' + this.nombre)
+        },
+
+        //  beforeDestroy = se ejecuta justo antes de eliminar la instancia
+        //  destroyed = se ejecuta cuando la instancia, directiva, etc se elimina
+
+        })
+
+    </script>
+
+
+
+</body>
+</html>
